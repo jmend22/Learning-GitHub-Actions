@@ -40,15 +40,15 @@ jobs:
       - name: checking runner info
         shell: pwsh
         run: get-computerinfo
-  job4:
-    name: JOB4
-    needs: [job1, job2, job3]
-    runs-on: macos-latest
-    steps:
-      - name: job for multiple dependencies
-        run: sleep 10
-      - name: checking runner info
-        run: sw_vers
+  #job4:
+  #  name: JOB4
+  #  needs: [job1, job2, job3]
+  #  runs-on: macos-latest
+  #  steps:
+  #    - name: job for multiple dependencies
+  #      run: sleep 10
+  #    - name: checking runner info
+  #      run: sw_vers
     
       
   
