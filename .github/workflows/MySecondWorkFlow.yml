@@ -11,14 +11,14 @@ jobs:
       - name: Step-1 - see dir. info
         run: |
           pwd
-          ls - ltr
+          ls -ltr
           hostname
       - name: Step-2 - checkout
         uses: actions/checkout@v7
       - name: Step-3 - checkout dir. info
         run: |
           pwd
-          ls - ltr
+          ls -ltr
           hostname
         
           
