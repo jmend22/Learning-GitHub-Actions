@@ -1,54 +1,54 @@
-name: my-first-workflow
-# To get triggered on every push in this repo in any branch
-on: 
-  push:
-  #schedule:
-  #  - cron: "5 * * * *"
-  #workflow_dispatch:
+#name: my-first-workflow
+## To get triggered on every push in this repo in any branch
+#on: 
+  #push:
+  ##schedule:
+  ##  - cron: "5 * * * *"
+  ##workflow_dispatch:
     
   
 
-jobs:
-  job1:
-    name: JOB1
-    runs-on: ubuntu-latest
-    steps:
-      - name: Running Single Command in Job1
-        run: echo "Hi this is my first GitHub workflow"
-      - name: Running OS Release for GitHub Hosted Runner
-        run: cat /etc/os-release
-      - name: Calling sleep
-        run: sleep 20        
-  job2:
-    name: JOB2
-    runs-on: ubuntu-latest
-    steps:
-      - name: Checking the hostname for runner
-        run: hostname
-      - name: running multiple commands
-        run: |
-          echo "Hi from JoseM"
-          echo "current time is `date`"
-          sleep 20
-  job3:
-    name: JOB3
-    needs: job1
-    runs-on: windows-latest
-    steps:
-      - name: job with single dependency
-        run: sleep 10
-      - name: checking runner info
-        shell: pwsh
-        run: get-computerinfo
-  #job4:
-  #  name: JOB4
-  #  needs: [job1, job2, job3]
-  #  runs-on: macos-latest
-  #  steps:
-  #    - name: job for multiple dependencies
-  #      run: sleep 10
-  #    - name: checking runner info
-  #      run: sw_vers
+#jobs:
+  #job1:
+    #name: JOB1
+    #runs-on: ubuntu-latest
+    #steps:
+      #- name: Running Single Command in Job1
+        #run: echo "Hi this is my first GitHub workflow"
+      #- name: Running OS Release for GitHub Hosted Runner
+        #run: cat /etc/os-release
+      #- name: Calling sleep
+        #run: sleep 20        
+  #job2:
+    #name: JOB2
+    #runs-on: ubuntu-latest
+    #steps:
+      #- name: Checking the hostname for runner
+        #run: hostname
+      #- name: running multiple commands
+        #run: |
+          #echo "Hi from JoseM"
+          #echo "current time is `date`"
+          #sleep 20
+  #job3:
+    #name: JOB3
+    #needs: job1
+    #runs-on: windows-latest
+    #steps:
+      #- name: job with single dependency
+        #run: sleep 10
+      #- name: checking runner info
+        #shell: pwsh
+        #run: get-computerinfo
+  ##job4:
+  ##  name: JOB4
+  ##  needs: [job1, job2, job3]
+  ##  runs-on: macos-latest
+  ##  steps:
+  ##    - name: job for multiple dependencies
+  ##      run: sleep 10
+  ##    - name: checking runner info
+  ##      run: sw_vers
     
       
   
