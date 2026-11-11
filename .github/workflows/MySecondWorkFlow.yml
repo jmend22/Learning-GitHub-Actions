@@ -1,0 +1,25 @@
+name: My-Second-Workflow
+# to get a trigger on every push in this repo in any branch
+on:
+  push:
+
+jobs:
+  job1:
+    name: JOB1
+    runs-on: ubuntu-latest
+    steps:
+      - name: Step-1 - see dir. info
+        run: |
+          pwd
+          ls - ltr
+          hostname
+      - name: Step-2 - checkout
+        uses: actions/checkout@v7
+      - name: Step-3 - checkout dir. info
+        run: |
+          pwd
+          ls - ltr
+          hostname
+        
+          
+          
