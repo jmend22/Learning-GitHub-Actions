@@ -18,8 +18,14 @@ jobs:
       - name: Step-3 - checkout dir. info
         run: |
           pwd
+          echo `pwd` >> myartifact.txt
           ls -ltr
           hostname
+      - name: Upload single file
+        uses: actions/upload-artifact@v7
+        with:
+          name: single_file
+          path: ./myartifact.txt
         
           
           
