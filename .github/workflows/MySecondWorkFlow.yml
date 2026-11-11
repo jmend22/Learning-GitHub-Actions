@@ -19,7 +19,7 @@ jobs:
         run: |
           pwd
           echo `pwd` >> myartifact.txt
-          mkdr artifacts
+          mkdir artifacts
           ls -ltr
           echo `ls -ltr` >> artifacts/list.txt
           echo `hostname` >> artifacts/hostname.txt
