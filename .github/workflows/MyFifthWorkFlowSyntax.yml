@@ -31,7 +31,7 @@ jobs:
     steps:
       - name: referring context or in-buildvariables
         run: |
-          echo "[INFO] Triggered by ${{ github.event_name }}."
+          echo "[INFO] - Triggered by ${{ github.event_name }}."
           echo "[INFO] Triggered by ${{ github.actor }} in ${{ github.ref_name }} branch."
           echo "[INFO] Triggered by ${{ github.actor }} in Pullrequest ${{ github.head_ref }} branch."
           echo "[INFO] Varabile: ${{ env.APP_USER }}"
