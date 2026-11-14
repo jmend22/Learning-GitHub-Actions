@@ -44,7 +44,7 @@ jobs:
         name: STAGING
     steps:
       - name: Refferring Environment Variables
-        run: echo "[INFO] Running deployment on ${{ vars.Host }} using ${{ vars.User }}"
+        run: echo "[INFO] Run deployment on ${{ vars.Host }} using ${{ vars.User }}"
       - name: Referring Environment Secrets
         run: echo "[INFO] Password for ${{ vars.User }} is ${{ secrets.PASSWORD }}"
  
