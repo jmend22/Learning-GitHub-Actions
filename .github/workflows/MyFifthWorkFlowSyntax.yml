@@ -33,13 +33,14 @@ jobs:
         run: |
           echo "[INFO] Triggered by ${{ github.event_name }}."
           echo "[INFO] Triggered by ${{ github.actor }} in ${{ github.ref_name }} branch."
+          echo "[INFO] Triggered by ${{ github.actor }} in Pullrequest ${{ github.head_ref }} branch."
           echo "[INFO] Varabile: ${{ env.APP_USER }}"
           echo "[INFO] Current step is running on ${{ runner.os }}"
           echo "[INFO] Current JOB ID is ${{ job.check_run_id }}"
   staging:
     name: STAGE DEPLOYMENT
     runs-on: ubuntu-latest
-    if: github.event_name == 'push'
+    if: github.head_ref == 'dev'
     environment:
         name: STAGING
     steps:
@@ -47,10 +48,14 @@ jobs:
         run: echo "[INFO] Run deployment on ${{ vars.Host }} using ${{ vars.User }}"
       - name: Referring Environment Secrets
         run: echo "[INFO] Password for ${{ vars.User }} is ${{ secrets.PASSWORD }}"
- 
-        
-    
-    
-    
-
-  
+  production:
+    name: Production DEPLOYMENT
+    runs-on: ubuntu-latest
+    if: github.head_ref == 'main'
+    environment:
+        name: PRODUCTION
+    steps:
+      - name: Refferring Environment Variables
+        run: echo "[INFO] Running deployment on ${{ vars.Host }} using ${{ vars.User }}"
+      - name: Referring Environment Secrets
+        run: echo "[INFO] Password for ${{ vars.User }} is ${{ secrets.PASSWORD }}"
