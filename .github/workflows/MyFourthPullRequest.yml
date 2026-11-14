@@ -3,8 +3,6 @@ name: My-Fourth-BranchNPull-Workflow
 on:
   push:
     branches:
-      - dev
-      - 'feature-*'
       - main
   pull_request:
     branches:
@@ -36,8 +34,8 @@ jobs:
         with:
           name: single_file
           path: ./myartifact.txt
-  job2:
-    name: JOB2
+  job2b:
+    name: JOB2b
     runs-on: ubuntu-latest
     needs: job1
     steps:
@@ -54,3 +52,5 @@ jobs:
         run: |
           pwd
           ls -ltr
+      - name: Step for PR Demo
+        run: exit 0
