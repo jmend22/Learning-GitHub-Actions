@@ -3,11 +3,10 @@ name: My-Fifth-BranchNPull-Workflow
 on:
   push:
     branches:
-      - dev
-      #- main
-  #pull_request:
-  #  branches:
-  #    - main
+      - main
+  pull_request:
+    branches:
+      - main
   
 env:
   APP_USER: jm
