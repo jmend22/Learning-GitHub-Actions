@@ -39,6 +39,7 @@ jobs:
   staging:
     name: STAGE DEPLOYMENT
     runs-on: ubuntu-latest
+    if: github.event_name == 'push'
     environment:
         name: STAGING
     steps:
