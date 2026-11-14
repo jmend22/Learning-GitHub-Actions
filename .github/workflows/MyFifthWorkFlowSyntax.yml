@@ -37,10 +37,11 @@ jobs:
           echo "[INFO] Varabile: ${{ env.APP_USER }}"
           echo "[INFO] Current step is running on ${{ runner.os }}"
           echo "[INFO] Current JOB ID is ${{ job.check_run_id }}"
+          echo "[INFO] BaseRef=> ${{ github.base_ref }}"
   staging:
     name: STAGE DEPLOYMENT
     runs-on: ubuntu-latest
-    if: github.head_ref == 'dev'
+    if: github.event_name == 'push' && github.ref_name == 'dev'
     environment:
         name: STAGING
     steps:
@@ -51,7 +52,9 @@ jobs:
   production:
     name: Production DEPLOYMENT
     runs-on: ubuntu-latest
-    if: github.head_ref == 'main'
+    if: >-
+      (github.event_name == 'pull_request' && github.base_ref == 'main') || 
+      (github.event_name == 'push' && github.ref_name == 'main')
     environment:
         name: PRODUCTION
     steps:
